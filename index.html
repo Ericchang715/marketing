@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行銷學 15版 教材介紹</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px 16px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 680px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+  }
+
+  /* HEADER */
+  .header {
+    background: #c0392b;
+    padding: 32px 36px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 180px;
+    height: 180px;
+    border: 28px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    right: 40px;
+    bottom: -50px;
+    width: 120px;
+    height: 120px;
+    border: 20px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .title-zh {
+    font-size: 52px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 4px;
+    margin-bottom: 6px;
+  }
+
+  .title-en {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .authors {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    line-height: 1.8;
+  }
+  .authors strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* META BAR */
+  .meta-bar {
+    background: #1a1a1a;
+    display: flex;
+    padding: 0 36px;
+  }
+  .meta-item {
+    flex: 1;
+    padding: 14px 0;
+    text-align: center;
+    border-right: 1px solid #333;
+  }
+  .meta-item:last-child { border-right: none; }
+  .meta-label {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .meta-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .meta-value.price {
+    color: #e74c3c;
+    font-size: 16px;
+  }
+
+  /* BODY */
+  .body {
+    padding: 28px 36px;
+  }
+
+  /* INTRO */
+  .intro {
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.85;
+    border-left: 3px solid #c0392b;
+    padding-left: 14px;
+    margin-bottom: 28px;
+  }
+
+  /* FEATURES */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #c0392b;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .feature-item {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: #333;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 28px;
+  }
+  .feature-item::before {
+    content: '✓';
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #c0392b;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* CHAPTERS */
+  .chapters {
+    margin-bottom: 28px;
+  }
+  .chapter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .chapter-part {
+    padding: 14px 16px;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .chapter-part:nth-child(even) { border-right: none; }
+  .chapter-part:nth-last-child(-n+2) { border-bottom: none; }
+  .part-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c0392b;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .chapter-list {
+    list-style: none;
+    font-size: 11.5px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .chapter-list li::before {
+    content: 'Ch';
+    font-size: 9px;
+    color: #bbb;
+    font-weight: 700;
+    margin-right: 3px;
+  }
+
+  /* CTA */
+  .cta {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cta-text {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .cta-text strong {
+    display: block;
+    font-size: 13.5px;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+  .cta-btn {
+    background: #c0392b;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #1a1a1a;
+    padding: 14px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-brand {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+  .footer-brand span {
+    color: #fff;
+    font-weight: 700;
+  }
+  .footer-isbn {
+    font-size: 10px;
+    color: #666;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="badge">2026 最新版 · 指定教材</div>
+    <div class="title-zh">行銷學</div>
+    <div class="title-en">Marketing: An Introduction · 15th Edition</div>
+    <div class="authors">
+      著：<strong>Gary Armstrong · Philip Kotler · Marc Oliver Opresnik</strong><br>
+      審校：<strong>李元恕</strong>　出版：<strong>華泰文化 × Pearson</strong>
+    </div>
+  </div>
+
+  <!-- META BAR -->
+  <div class="meta-bar">
+    <div class="meta-item">
+      <div class="meta-label">版次</div>
+      <div class="meta-value">第 15 版</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">頁數</div>
+      <div class="meta-value">630 頁</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">年份</div>
+      <div class="meta-value">2026</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">定價</div>
+      <div class="meta-value price">NT$ 738</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- INTRO -->
+    <div class="intro">
+      由行銷大師 Kotler、Armstrong 與 Opresnik 合著，第15版全面納入數位轉型、大數據與 AI 趨勢，以故事化敘事說明品牌如何創造顧客價值，並深入探討永續行銷策略，理論與實務兼具。
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section-label">本書特色</div>
+    <div class="features">
+      <div class="feature-item">經典個案開章，引導行銷思維</div>
+      <div class="feature-item">理論結合實務案例，加深應用</div>
+      <div class="feature-item">故事化敘事，內容生動易懂</div>
+      <div class="feature-item">圖文並茂，強化學習與記憶</div>
+      <div class="feature-item">融入 AI、大數據與數位行銷</div>
+      <div class="feature-item">永續行銷與社會責任新章節</div>
+    </div>
+
+    <!-- CHAPTERS -->
+    <div class="chapters">
+      <div class="section-label">章節架構（共 16 章）</div>
+      <div class="chapter-grid">
+        <div class="chapter-part">
+          <div class="part-title">第一篇｜定義行銷</div>
+          <ul class="chapter-list">
+            <li>創造顧客價值與參與</li>
+            <li>公司與行銷策略</li>
+          </ul>
+        </div>
+        <div class="chapter-part">
+          <div class="part-title">第二篇｜了解市場</div>
+          <ul class="chapter-list">
+            <li>分析行銷環境</li>
+            <li>管理行銷資訊</li>
+            <li>消費者購買行為</li>
+          </ul>
+        </div>
+        <div class="chapter-part">
+          <div class="part-title">第三篇｜行銷組合</div>
+          <ul class="chapter-list">
+            <li>目標市場策略</li>
+            <li>產品、服務與品牌</li>
+            <li>訂價、通路、零售</li>
+            <li>廣告、公關、促銷</li>
+            <li>數位行銷</li>
+          </ul>
+        </div>
+        <div class="chapter-part">
+          <div class="part-title">第四篇｜延伸議題</div>
+          <ul class="chapter-list">
+            <li>全球市場行銷</li>
+            <li>永續行銷與道德</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-text">
+        <strong>立即購書</strong>
+        華泰網路書店，刷卡、超商取貨均可
+      </div>
+      <a class="cta-btn" href="https://eshop.hwatai.com.tw/SalePage/Index/11554013" target="_blank">前往購書 →</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand"><span>華泰文化</span>  since 1974</div>
+    <div class="footer-isbn">ISBN 978-626-739-568-4</div>
+  </div>
+
+</div>
+</body>
+</html>
